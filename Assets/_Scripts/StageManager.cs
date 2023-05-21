@@ -29,11 +29,17 @@ public class StageManager : MonoBehaviour {
         await Task.Delay(1000);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(name);
+        operation.allowSceneActivation = false;
 
         do {
+            await Task.Delay(1);
             slider.DOValue(operation.progress, 1f);
-        } while (!operation.isDone);
+        } while (operation.progress < 0.9f);
 
+        await Task.Delay(1000);
+
+        operation.allowSceneActivation = true;
+        slider.DOValue(0f, 1f);
         group.DOFade(0, 1f);
     }
 
