@@ -3085,79 +3085,57 @@ MonoBehaviour:
   - source: {fileID: 0}
     name: 8 Bit Game
     loop: 1
-    playOnAwake: 0
     volume: 0.5
-    pitch: 1
     clip: {fileID: 8300000, guid: dec16ceed51871246a6ceab4ad2c9053, type: 3}
   - source: {fileID: 0}
     name: Save As
     loop: 1
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 8b06e40a39bb96e4eb9e4a54afa057e4, type: 3}
   - source: {fileID: 0}
     name: Bow
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 9be0217bcfb5f1842bc90fe0762c270a, type: 3}
   - source: {fileID: 0}
     name: Bucket
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 9870decdc34c0f6438f5d507f428cee2, type: 3}
   - source: {fileID: 0}
     name: Explosion
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 2f8dc643611f734468d9a6ca9c8ed4b9, type: 3}
   - source: {fileID: 0}
     name: Hit/Hurt
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 68dec141e0db29749957ba88b6632e46, type: 3}
   - source: {fileID: 0}
     name: Item
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: faa0c974a63943745b63eb70b91e6251, type: 3}
   - source: {fileID: 0}
     name: Jump
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 86bb56265dbcd8e4ea6ee797c7cc9e76, type: 3}
   - source: {fileID: 0}
     name: Select
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 779239efdee13b44ea38515d86c7376d, type: 3}
   - source: {fileID: 0}
     name: Spawn
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 1d030066ad4a8e345bd1f26ed854992d, type: 3}
   - source: {fileID: 0}
     name: Walk
     loop: 0
-    playOnAwake: 0
     volume: 1
-    pitch: 1
     clip: {fileID: 8300000, guid: 3d17c36678f2aa940b316445c976fe20, type: 3}
 --- !u!1 &2132880933
 GameObject:

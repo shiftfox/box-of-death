@@ -27,6 +27,19 @@ public class UIManager : MonoBehaviour {
         AudioManager.instance.Play("Select");
     }
 
+    public void Continue() {
+        int index = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;
+        PlayerPrefs.SetInt("Stage", index);
+
+        StageManager.instance.LoadScene(index);
+        AudioManager.instance.Play("Select");
+    }
+
+    public void End() {
+        PlayerPrefs.SetInt("Stage", 1);
+        Quit();
+    }
+
     public void Quit() {
         StageManager.instance.LoadScene(0);
         AudioManager.instance.Play("Select");
