@@ -28,6 +28,9 @@ public class Bucket : MonoBehaviour {
         for (int i = 0; i < 20; i++) {
             SpriteRenderer sr = Instantiate(paintball, paintRenderer.transform.position, paintRenderer.transform.rotation);
             sr.color = color;
+
+            sr.GetComponent<Rigidbody2D>().AddForce(-transform.right * 10f, ForceMode2D.Impulse);
+
             yield return new WaitForSeconds(.05f);
         }
 

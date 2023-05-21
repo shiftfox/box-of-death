@@ -7,9 +7,7 @@ public class AudioManager : MonoBehaviour {
         [HideInInspector] public AudioSource source;
         public string name;
         public bool loop;
-        public bool playOnAwake;
         [Range(0, 1)] public float volume;
-        [Range(-3, 3)] public float pitch = 1f;
         public AudioClip clip;
     }
 
@@ -29,25 +27,25 @@ public class AudioManager : MonoBehaviour {
         foreach (Sound sound in sounds) {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
+            sound.source.pitch = 1f;
             sound.source.loop = sound.loop;
             sound.source.clip = sound.clip;
-
-            if (sound.playOnAwake) sound.source.Play();
         }
     }
 
     public void Play(string name) {
         foreach (Sound sound in sounds) {
-            if (sound.name == name)
+            if (sound.name == name) {
+                if (!sound.loop) sound.source.pitch = Random.Range(1f, 2f);
                 sound.source.Play();
+            }
         }
     }
 
     public void Stop(string name) {
         foreach (Sound sound in sounds) {
             if (sound.name == name)
-                sound.source.Play();
+                sound.source.Stop();
         }
     }
 }
