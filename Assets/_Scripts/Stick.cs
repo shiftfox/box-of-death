@@ -23,7 +23,7 @@ public class Stick : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
             collision.gameObject.GetComponent<PlayerHealth>().Damage(speed*2, PlayerHealth.DeathType.Stick);
 
-        if (dragging)
+        if (dragging && speed >= 0.1f)
             Destroy(gameObject);
     }
 }

@@ -23,7 +23,7 @@ public class Axe : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player"))
             collision.gameObject.GetComponent<PlayerHealth>().Damage(speed*5, PlayerHealth.DeathType.Axe);
 
-        if (dragging)
+        if (dragging && speed >= 0.1f)
             Destroy(gameObject);
     }
 }

@@ -15,6 +15,9 @@ public class RandomBox : DragBehaviour {
     public void SpawnRandom() {
         if (!canSpawn) return;
 
+        EffectManager.instance.CameraShake();
+        EffectManager.instance.SpawnParticle(transform, 1);
+
         AudioManager.instance.Play("Item");
         StartCoroutine(IColliderDisable());
 

@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour {
         damageDealt += amount;
         slider.value = 1 - damageDealt;
 
+        EffectManager.instance.CameraShake();
+        EffectManager.instance.SpawnParticle(transform, 0);
+
         if (damageDealt >= 1) {
             DeathManager.instance.HandleDeath(type);
             AudioManager.instance.Play("Explosion");
