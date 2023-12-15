@@ -1,0 +1,438 @@
+[gd_scene load_steps=19 format=3 uid="uid://7isx3na32bhm"]
+
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_m2haw"]
+[ext_resource type="FontFile" uid="uid://ciydmudo7dbn6" path="res://sprites/Silkscreen.ttf" id="2_45caq"]
+[ext_resource type="Texture2D" uid="uid://c2imv7vjiliwr" path="res://sprites/sprite_0.png" id="3_iv585"]
+[ext_resource type="Texture2D" uid="uid://d0nvo8k6aseo8" path="res://sprites/sprite_2.png" id="4_jxivd"]
+[ext_resource type="Script" path="res://scripts/custom_timer.gd" id="4_sipqg"]
+[ext_resource type="Texture2D" uid="uid://bmgamb5qccvh0" path="res://sprites/sprite_1.png" id="5_6m0s2"]
+[ext_resource type="PackedScene" uid="uid://b025vdpuk3vhe" path="res://nodes/player.tscn" id="5_3331b"]
+[ext_resource type="TileSet" uid="uid://d3jfvqxj2x0kj" path="res://tileset/tileset.tres" id="6_5vdd3"]
+[ext_resource type="PackedScene" uid="uid://b88r8dy3cfhb" path="res://nodes/box.tscn" id="7_c1ahy"]
+[ext_resource type="Texture2D" uid="uid://c5t1kp86ocsaw" path="res://sprites/tutorial.png" id="10_y0url"]
+[ext_resource type="Texture2D" uid="uid://dgg64rflemxbm" path="res://sprites/hand.png" id="11_6om1v"]
+[ext_resource type="Texture2D" uid="uid://dmk064w1io7rw" path="res://sprites/mouse.png" id="12_dtl7q"]
+[ext_resource type="Texture2D" uid="uid://b3tygrvq5c08b" path="res://sprites/axe.png" id="13_n4l60"]
+[ext_resource type="Texture2D" uid="uid://du77p01w2tll5" path="res://sprites/box.png" id="14_hkkym"]
+[ext_resource type="Texture2D" uid="uid://biat6hdg0qb6h" path="res://sprites/square.png" id="15_v5f57"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et0q6"]
+bg_color = Color(0.643137, 0.643137, 0.643137, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7d1y"]
+bg_color = Color(0, 1, 0.552941, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Environment" id="Environment_qnhap"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_levels/3 = 16.0
+glow_levels/4 = 16.0
+glow_levels/5 = 16.0
+glow_levels/6 = 16.0
+glow_levels/7 = 16.0
+glow_normalized = true
+glow_bloom = 1.0
+glow_blend_mode = 4
+
+[node name="Level1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("1_m2haw")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+process_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 288.0
+offset_top = 50.0
+offset_right = -288.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_styles/background = SubResource("StyleBoxFlat_et0q6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_t7d1y")
+max_value = 1.0
+value = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+process_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 75
+text = "20.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseScreen" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -25.0
+offset_right = -107.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 25
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 159.0
+offset_top = -25.0
+offset_right = 359.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 25
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinishScreen" type="ColorRect" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Status" type="Label" parent="CanvasLayer/FinishScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 80.0
+offset_right = 56.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_45caq")
+text = "[Un]successful"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 40
+text = "You Died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/FinishScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -27.0
+offset_right = -126.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.22223
+offset_right = -2.22223
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/FinishScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 25
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/FinishScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 155.0
+offset_top = -27.0
+offset_right = 355.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("3_iv585")
+texture_pressed = ExtResource("4_jxivd")
+texture_hover = ExtResource("5_6m0s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_45caq")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Setup" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Setup"]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+
+[node name="CustomTimer" type="Node2D" parent="Setup"]
+script = ExtResource("4_sipqg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
+environment = SubResource("Environment_qnhap")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Player" parent="Environment" instance=ExtResource("5_3331b")]
+
+[node name="TileMap" type="TileMap" parent="Environment"]
+tile_set = ExtResource("6_5vdd3")
+format = 2
+layer_0/tile_data = PackedInt32Array(131068, 65536, 1, 131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 1, 196604, 65536, 1, 131075, 65536, 1, 196605, 65536, 1, 196606, 65536, 1, 196607, 65536, 1, 131072, 65536, 1, 131073, 65536, 1, 131074, 65536, 1, 262140, 65536, 2, 262141, 65536, 2, 262142, 65536, 2, 262143, 65536, 2, 196608, 65536, 2, 196609, 65536, 2, 196610, 65536, 2, 196611, 65536, 2, 65532, 131072, 1, -4, 131072, 1, -65540, 131072, 1, -131076, 65536, 1, -131075, 65536, 2, -131074, 65536, 2, -131073, 65536, 2, -196608, 65536, 2, -196607, 65536, 2, -196606, 65536, 2, -196605, 65536, 1, -131069, 0, 1, -65533, 0, 1, 3, 0, 1, -131077, 65536, 1, -65541, 65536, 1, -5, 65536, 1, 65531, 65536, 1, 131067, 65536, 1, 196603, 65536, 1, 262139, 65536, 2, 262138, 65536, 2, 262137, 0, 2, 196601, 0, 1, 131065, 0, 1, 65529, 0, 1, -7, 0, 1, -65543, 0, 1, -131079, 0, 1, -131078, 65536, 1, -65542, 65536, 1, -6, 65536, 1, 65530, 65536, 1, 131066, 65536, 1, 196602, 65536, 1, -196615, 0, 1, -262151, 0, 0, -262150, 65536, 0, -262149, 65536, 0, -262148, 65536, 0, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, -327676, 65536, 0, -327675, 65536, 0, -327674, 131072, 0, -262138, 131072, 1, -196602, 131072, 1, -131066, 131072, 1, -65530, 131072, 1, 6, 131072, 1, 65542, 131072, 1, 131078, 131072, 1, 196614, 131072, 2, 196613, 65536, 2, 196612, 65536, 2, -196614, 65536, 1, -196613, 65536, 1, -196612, 65536, 1, -196611, 65536, 1, -196610, 65536, 1, -196609, 65536, 1, -262144, 65536, 1, -262143, 65536, 1, -262142, 65536, 1, -262141, 65536, 1, -262140, 65536, 1, -262139, 65536, 1, -196603, 65536, 1, -131067, 65536, 1, -65531, 65536, 1, 5, 65536, 1, 65541, 65536, 1, 131077, 65536, 1, 131076, 65536, 1, 65540, 65536, 1, 4, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 65536, 1)
+
+[node name="Box" parent="Environment" instance=ExtResource("7_c1ahy")]
+position = Vector2(61, 2)
+
+[node name="Tutorial" type="Node2D" parent="Environment"]
+z_index = -1
+
+[node name="Movement" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(-57.5, -6)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("10_y0url")
+
+[node name="Hand" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(43, 10)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("11_6om1v")
+
+[node name="LeftClick" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(26, 11)
+scale = Vector2(-0.594, 0.594)
+texture = ExtResource("12_dtl7q")
+
+[node name="Axe" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(43, -21.0104)
+scale = Vector2(0.328125, 0.328125)
+texture = ExtResource("13_n4l60")
+
+[node name="Axe2" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(43, -7.01041)
+scale = Vector2(0.328125, 0.328125)
+texture = ExtResource("14_hkkym")
+
+[node name="RightClick" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(26, -11)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("12_dtl7q")
+
+[node name="Square" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(46, -15)
+scale = Vector2(0.01, 0.1)
+texture = ExtResource("15_v5f57")
+
+[node name="Square2" type="Sprite2D" parent="Environment/Tutorial"]
+position = Vector2(40, -15)
+scale = Vector2(0.01, 0.1)
+texture = ExtResource("15_v5f57")
+
+[node name="Square3" type="Sprite2D" parent="Environment/Tutorial"]
+z_index = -2
+position = Vector2(43, -13)
+scale = Vector2(0.01, 0.1)
+texture = ExtResource("15_v5f57")
+
+[connection signal="pressed" from="CanvasLayer/PauseScreen/Menu" to="CanvasLayer" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/Resume" to="CanvasLayer" method="toggle_pause"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/Restart" to="CanvasLayer" method="restart"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/Menu" to="CanvasLayer" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/Restart" to="CanvasLayer" method="restart"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/Quit" to="CanvasLayer" method="quit"]

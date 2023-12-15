@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://swqp1nltjp4"]
+
+[ext_resource type="Texture2D" uid="uid://dtcqkvouno8js" path="res://sprites/circle.png" id="1_y1twd"]
+
+[sub_resource type="Curve" id="Curve_m0g6p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2gjiq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[node name="DeathExplosion" type="CPUParticles2D"]
+amount = 100
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("1_y1twd")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 250.0
+angular_velocity_min = -720.0
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_m0g6p")
+color_ramp = SubResource("Gradient_2gjiq")
