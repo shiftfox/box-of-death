@@ -5,6 +5,9 @@ extends CanvasLayer
 var paused = false
 var success = false
 
+func _ready():
+	AudioManager.play_sound("res://audio/8-bit-game.mp3", true)
+
 func _input(_event):
 	if Input.is_action_just_pressed("ui_pause"):
 		toggle_pause()

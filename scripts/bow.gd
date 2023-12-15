@@ -13,5 +13,6 @@ func _interact():
 	arrow.set_linear_velocity(Vector2(cos(rotation), sin(rotation)) * 250)
 	get_tree().current_scene.add_child(arrow)
 	shot += 1
+	AudioManager.play_sound("res://audio/bow.wav")
 	if shot >= 5:
 		queue_free()

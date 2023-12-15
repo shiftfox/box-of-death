@@ -7,8 +7,14 @@ var objects = [
 	preload("res://nodes/bucket.tscn")
 ]
 
+var particle = preload("res://nodes/item_spawn.tscn")
+
 func _interact():
 	var object = objects[randi() % objects.size()].instantiate()
 	object.position = global_position - Vector2(0, 20)
 	object.apply_central_impulse(Vector2(0, -300))
-	get_tree().current_scene.add_child(object)
+	add_sibling(object)
+	var p = particle.instantiate()
+	p.position = global_position - Vector2(0, 20)
+	add_sibling(p)
+	AudioManager.play_sound("res://audio/item.wav")

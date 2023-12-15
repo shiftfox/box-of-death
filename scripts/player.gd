@@ -27,6 +27,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_velocity
+		AudioManager.play_sound("res://audio/jump.wav")
 
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
@@ -51,9 +52,15 @@ func damage(amount: float, success: bool):
 		var explosion = death_explosion.instantiate()
 		explosion.position = global_position
 		add_sibling(explosion)
+		AudioManager.play_sound("res://audio/explosion.wav")
 		await get_tree().create_timer(1).timeout
 		canvas.finish(success)
 		return
+	AudioManager.play_sound("res://audio/hitHurt.wav")
 	var explosion = dmg_explosion.instantiate()
 	explosion.position = global_position
 	add_sibling(explosion)
+
+func _play_walk_sound():
+	if velocity.x != 0:
+		AudioManager.play_sound("res://audio/walk.wav")

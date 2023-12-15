@@ -1,7 +1,12 @@
 extends CanvasLayer
 
 @export var active: Control
+
+func _ready():
+	AudioManager.play_sound("res://audio/save-as.mp3", true)
+
 func toggle(new_control):
+	AudioManager.play_sound("res://audio/select.wav")	
 	var tween = get_tree().create_tween()
 	if active:
 		tween.tween_property(active, "modulate", Color.TRANSPARENT, 0.3)

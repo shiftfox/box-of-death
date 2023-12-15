@@ -27,6 +27,7 @@ func _process(delta):
 
 func _interact():
 	shooting = true
+	AudioManager.play_sound("res://audio/bucket.wav")
 	var tween = get_tree().create_tween()
 	tween.tween_property($Paint, "modulate", Color.TRANSPARENT, 1)
 	await tween.finished

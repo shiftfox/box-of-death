@@ -21,6 +21,7 @@ config/icon="res://sprites/icon.png"
 [autoload]
 
 SceneManager="*res://nodes/scene_manager.tscn"
+AudioManager="*res://nodes/audio_manager.tscn"
 
 [display]
 
