@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwglrao2s5o8o"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_mkuq7"]
+[ext_resource type="Texture2D" uid="uid://c2imv7vjiliwr" path="res://sprites/sprite_0.png" id="1_yn3aw"]
+[ext_resource type="Texture2D" uid="uid://biat6hdg0qb6h" path="res://sprites/square.png" id="2_v2nro"]
+
+[node name="Button" type="Area2D"]
+script = ExtResource("1_mkuq7")
+
+[node name="AlreadyPressed" type="Sprite2D" parent="."]
+modulate = Color(0.184314, 0.337255, 1, 1)
+z_index = -2
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("1_yn3aw")
+
+[node name="Platform" type="Sprite2D" parent="."]
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+position = Vector2(0, 5)
+scale = Vector2(0.6, 0.3)
+texture = ExtResource("2_v2nro")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 0, -8, -6, -6, -8, 6, -8, 8, -6, 8, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

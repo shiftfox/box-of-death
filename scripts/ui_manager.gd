@@ -2,11 +2,18 @@ extends CanvasLayer
 
 @onready var finishScreen = $FinishScreen
 @onready var pauseScreen = $PauseScreen
+@export var bossfight = false
+@export var preboss = false
 var paused = false
 var success = false
 
 func _ready():
-	AudioManager.play_sound("res://audio/8-bit-game.mp3", true)
+	if bossfight:
+		AudioManager.play_sound("res://audio/boss.mp3", true)
+	elif preboss:
+		AudioManager.play_sound("res://audio/preboss.mp3", true)
+	else:
+		AudioManager.play_sound("res://audio/game.mp3", true)
 
 func _input(_event):
 	if Input.is_action_just_pressed("ui_pause"):
@@ -21,11 +28,11 @@ func toggle_pause():
 	else:
 		pauseScreen.hide()
 
-func finish(success: bool):
+func finish(was_sucessful: bool):
 	paused = true
 	get_tree().paused = true
 	finishScreen.show()
-	self.success = success
+	success = was_sucessful
 	
 	if success:
 		$FinishScreen/Restart/Label.text = "Continue"

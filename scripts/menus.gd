@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var active: Control
 
 func _ready():
-	AudioManager.play_sound("res://audio/save-as.mp3", true)
+	AudioManager.play_sound("res://audio/menus.mp3", true)
 
 func toggle(new_control):
 	AudioManager.play_sound("res://audio/select.wav")	

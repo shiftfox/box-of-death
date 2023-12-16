@@ -1,14 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://djeyisy33yhqg"]
+[gd_scene load_steps=13 format=3 uid="uid://48byfcxhipky"]
 
-[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_q3mw5"]
-[ext_resource type="FontFile" uid="uid://ciydmudo7dbn6" path="res://sprites/Silkscreen.ttf" id="2_3cdr2"]
-[ext_resource type="Texture2D" uid="uid://c2imv7vjiliwr" path="res://sprites/sprite_0.png" id="3_pil5d"]
-[ext_resource type="Texture2D" uid="uid://d0nvo8k6aseo8" path="res://sprites/sprite_2.png" id="4_e232m"]
-[ext_resource type="Texture2D" uid="uid://bmgamb5qccvh0" path="res://sprites/sprite_1.png" id="5_ewsqx"]
-[ext_resource type="Script" path="res://scripts/custom_timer.gd" id="6_dxogy"]
-[ext_resource type="PackedScene" uid="uid://b025vdpuk3vhe" path="res://nodes/player.tscn" id="7_hr6si"]
-[ext_resource type="TileSet" uid="uid://d3jfvqxj2x0kj" path="res://tileset/tileset.tres" id="8_x82v8"]
-[ext_resource type="PackedScene" uid="uid://b88r8dy3cfhb" path="res://nodes/box.tscn" id="9_nu30i"]
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_2kow5"]
+[ext_resource type="FontFile" uid="uid://ciydmudo7dbn6" path="res://sprites/Silkscreen.ttf" id="2_72qa3"]
+[ext_resource type="Texture2D" uid="uid://c2imv7vjiliwr" path="res://sprites/sprite_0.png" id="3_ssb8m"]
+[ext_resource type="Texture2D" uid="uid://d0nvo8k6aseo8" path="res://sprites/sprite_2.png" id="4_h2jn3"]
+[ext_resource type="Texture2D" uid="uid://bmgamb5qccvh0" path="res://sprites/sprite_1.png" id="5_f6fte"]
+[ext_resource type="Script" path="res://scripts/custom_timer.gd" id="6_k07hu"]
+[ext_resource type="PackedScene" uid="uid://b025vdpuk3vhe" path="res://nodes/player.tscn" id="7_w84qj"]
+[ext_resource type="TileSet" uid="uid://d3jfvqxj2x0kj" path="res://tileset/tileset.tres" id="8_e8ep6"]
+[ext_resource type="PackedScene" uid="uid://b88r8dy3cfhb" path="res://nodes/box.tscn" id="9_jiqac"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et0q6"]
 bg_color = Color(0.643137, 0.643137, 0.643137, 1)
@@ -38,11 +38,11 @@ glow_normalized = true
 glow_bloom = 1.0
 glow_blend_mode = 4
 
-[node name="Level5" type="Node2D"]
+[node name="Level6" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource("1_q3mw5")
+script = ExtResource("1_2kow5")
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
 process_mode = 1
@@ -54,7 +54,7 @@ offset_right = -288.0
 offset_bottom = 77.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_styles/background = SubResource("StyleBoxFlat_et0q6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t7d1y")
 max_value = 1.0
@@ -70,7 +70,7 @@ offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 75
 text = "20.0"
 horizontal_alignment = 1
@@ -98,7 +98,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 75.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 40
 text = "Paused"
 horizontal_alignment = 1
@@ -118,9 +118,9 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -132,7 +132,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 23
 text = "Main Menu"
 horizontal_alignment = 1
@@ -151,9 +151,9 @@ offset_right = 100.0
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -165,7 +165,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 25
 text = "Resume"
 horizontal_alignment = 1
@@ -185,9 +185,9 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -199,7 +199,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 25
 text = "Restart"
 horizontal_alignment = 1
@@ -231,7 +231,7 @@ offset_top = 80.0
 offset_right = 56.0
 offset_bottom = 106.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 text = "[Un]successful"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -242,7 +242,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 75.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 40
 text = "You Died!"
 horizontal_alignment = 1
@@ -262,9 +262,9 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -278,9 +278,139 @@ offset_right = -2.22223
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 23
 text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseScreen" type="ColorRect" parent="CanvasLayer/FinishScreen"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/PauseScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_72qa3")
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/FinishScreen/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -25.0
+offset_right = -107.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_72qa3")
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer/FinishScreen/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/PauseScreen/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_72qa3")
+theme_override_font_sizes/font_size = 25
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/FinishScreen/PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 159.0
+offset_top = -25.0
+offset_right = 359.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/FinishScreen/PauseScreen/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_72qa3")
+theme_override_font_sizes/font_size = 25
+text = "Restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -297,9 +427,9 @@ offset_right = 100.0
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -311,7 +441,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 25
 text = "Restart"
 horizontal_alignment = 1
@@ -331,9 +461,9 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("3_pil5d")
-texture_pressed = ExtResource("4_e232m")
-texture_hover = ExtResource("5_ewsqx")
+texture_normal = ExtResource("3_ssb8m")
+texture_pressed = ExtResource("4_h2jn3")
+texture_hover = ExtResource("5_f6fte")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -345,7 +475,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3cdr2")
+theme_override_fonts/font = ExtResource("2_72qa3")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 horizontal_alignment = 1
@@ -354,12 +484,11 @@ vertical_alignment = 1
 [node name="Setup" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Setup"]
-position = Vector2(32, -238)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="CustomTimer" type="Node2D" parent="Setup"]
-script = ExtResource("6_dxogy")
+script = ExtResource("6_k07hu")
 time = 40.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
@@ -367,20 +496,20 @@ environment = SubResource("Environment_qnhap")
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="Player" parent="Environment" instance=ExtResource("7_hr6si")]
-position = Vector2(35, -244)
+[node name="Player" parent="Environment" instance=ExtResource("7_w84qj")]
+position = Vector2(32, -23)
 
 [node name="TileMap" type="TileMap" parent="Environment"]
-tile_set = ExtResource("8_x82v8")
+tile_set = ExtResource("8_e8ep6")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, -3, 0, 0, -6, 0, 0, -10, 0, 0, 65521, 0, 0, -327715, 0, 0, 65536, 0, 2, 65533, 0, 2, 65530, 0, 2, 65526, 0, 2, 131057, 0, 2, 393181, 0, 2, 1, 131072, 0, -2, 131072, 0, -5, 131072, 0, -9, 131072, 0, 65522, 131072, 0, -327699, 131072, 0, 196589, 131072, 0, 65537, 131072, 2, 65534, 131072, 2, 65531, 131072, 2, 65527, 131072, 2, 131058, 131072, 2, -131091, 131072, 2, 393197, 131072, 2, -131092, 65536, 2, -131093, 65536, 2, -131094, 65536, 2, -131095, 65536, 2, -131096, 65536, 2, -131097, 65536, 2, -131098, 65536, 2, -131099, 65536, 2, -131100, 65536, 2, -131101, 65536, 2, -131102, 65536, 2, 393196, 65536, 2, 393195, 65536, 2, 393194, 65536, 2, 393193, 65536, 2, 393192, 65536, 2, 393191, 65536, 2, 393190, 65536, 2, 393189, 65536, 2, 393188, 65536, 2, 393187, 65536, 2, 393186, 65536, 2, 393185, 65536, 2, 393184, 65536, 2, 393183, 65536, 2, 393182, 65536, 2, 196587, 65536, 0, 196588, 65536, 0, 196586, 65536, 0, 196585, 65536, 0, 196584, 65536, 0, 196583, 65536, 0, 196582, 65536, 0, 196581, 65536, 0, 196580, 65536, 0, 196579, 65536, 0, 196578, 65536, 0, -327700, 65536, 0, -327701, 65536, 0, -327702, 65536, 0, -327703, 65536, 0, -327704, 65536, 0, -327705, 65536, 0, -327706, 65536, 0, -327707, 65536, 0, -327708, 65536, 0, -327709, 65536, 0, -327710, 65536, 0, -327711, 65536, 0, -327714, 65536, 0, -327713, 65536, 0, -327712, 65536, 0, -65567, 131072, 1, -31, 131072, 1, 65505, 131072, 1, 131041, 131072, 1, -262163, 131072, 1, -196627, 131072, 1, 262125, 131072, 1, 327661, 131072, 1, 327645, 0, 1, 262109, 0, 1, 196573, 0, 1, 131037, 0, 1, 65501, 0, 1, -35, 0, 1, -65571, 0, 1, -131107, 0, 1, -196643, 0, 1, -262179, 0, 1, 262123, 65536, 1, 262124, 65536, 1, 262122, 65536, 1, 262121, 65536, 1, 262120, 65536, 1, 262119, 65536, 1, 262118, 65536, 1, 262117, 65536, 1, 262116, 65536, 1, 262115, 65536, 1, 262114, 65536, 1, 196577, 65536, 1, 262113, 65536, 1, -131103, 65536, 1, -196628, 65536, 1, -196629, 65536, 1, -196630, 65536, 1, -196631, 65536, 1, -196632, 65536, 1, -196633, 65536, 1, -196634, 65536, 1, -196635, 65536, 1, -196636, 65536, 1, -196637, 65536, 1, -196638, 65536, 1, -196639, 65536, 1, -262164, 65536, 1, -262175, 65536, 1, -262174, 65536, 1, -262173, 65536, 1, -262172, 65536, 1, -262171, 65536, 1, -262170, 65536, 1, -262169, 65536, 1, -262168, 65536, 1, -262167, 65536, 1, -262166, 65536, 1, -262165, 65536, 1, 327660, 65536, 1, 327659, 65536, 1, 327658, 65536, 1, 327657, 65536, 1, 327656, 65536, 1, 327655, 65536, 1, 327654, 65536, 1, 327653, 65536, 1, 327652, 65536, 1, 327651, 65536, 1, 327650, 65536, 1, 327649, 65536, 1, 327648, 65536, 1, 327647, 65536, 1, 327646, 65536, 1, 262110, 65536, 1, 196574, 65536, 1, 131039, 65536, 1, 131040, 65536, 1, 196576, 65536, 1, 262112, 65536, 1, 262111, 65536, 1, 196575, 65536, 1, 65503, 65536, 1, 65502, 65536, 1, -34, 65536, 1, -65570, 65536, 1, -131106, 65536, 1, -196642, 65536, 1, -262178, 65536, 1, -262177, 65536, 1, -196641, 65536, 1, -131105, 65536, 1, -65569, 65536, 1, -33, 65536, 1, 65504, 65536, 1, 131038, 65536, 1, -32, 65536, 1, -65568, 65536, 1, -131104, 65536, 1, -196640, 65536, 1, -262176, 65536, 1)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 2, 1, 131072, 0, 65537, 131072, 2, -3, 0, 0, 65533, 0, 2, 65534, 131072, 2, -2, 131072, 0, -65542, 0, 0, -65541, 131072, 0, -6, 0, 2, -5, 131072, 2, -11, 0, 0, -10, 65536, 0, -9, 65536, 0, -8, 131072, 0, 65528, 131072, 2, 65527, 65536, 2, 65526, 65536, 2, 65525, 0, 2, -16, 0, 0, -15, 65536, 0, -14, 65536, 0, -13, 131072, 0, 65520, 0, 2, 65521, 65536, 2, 65522, 65536, 2, 65523, 131072, 2, 65518, 65536, 1, -20, 0, 0, 65516, 0, 2, -18, 65536, 1, -17, 65536, 1, 65519, 65536, 1, -19, 131072, 0, 65517, 131072, 2, -131096, 0, 0, -131095, 131072, 0, -65560, 0, 2, -65559, 65536, 0, -65558, 65536, 0, -23, 0, 2, -22, 131072, 2)
 
-[node name="Box" parent="Environment" instance=ExtResource("9_nu30i")]
-position = Vector2(-904, 17)
+[node name="Box" parent="Environment" instance=ExtResource("9_jiqac")]
+position = Vector2(-686, -78)
 
-[connection signal="pressed" from="CanvasLayer/PauseScreen/Menu" to="CanvasLayer" method="main_menu"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/Resume" to="CanvasLayer" method="toggle_pause"]
-[connection signal="pressed" from="CanvasLayer/PauseScreen/Restart" to="CanvasLayer" method="restart"]
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Menu" to="CanvasLayer" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/PauseScreen/Menu" to="CanvasLayer" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/PauseScreen/Resume" to="CanvasLayer" method="toggle_pause"]
+[connection signal="pressed" from="CanvasLayer/FinishScreen/PauseScreen/Restart" to="CanvasLayer" method="restart"]
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Restart" to="CanvasLayer" method="restart"]
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Quit" to="CanvasLayer" method="quit"]

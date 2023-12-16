@@ -3,6 +3,7 @@ class_name Interactable
 
 var mouse_in = false
 var dragging = false
+@export var enabled = true
 var offset = Vector2.ZERO
 
 func _ready():
@@ -13,6 +14,7 @@ func _interact():
 	pass
 
 func _process(_delta):
+	if not enabled: return
 	if Input.is_action_just_pressed("drag") and mouse_in:
 		freeze = true
 		dragging = true

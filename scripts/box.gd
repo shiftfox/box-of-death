@@ -1,5 +1,8 @@
 extends Interactable
 
+@export var use_limit = 0
+var uses = 0
+
 var objects = [
 	preload("res://nodes/bow.tscn"),
 	preload("res://nodes/axe.tscn"),
@@ -18,3 +21,7 @@ func _interact():
 	p.position = global_position - Vector2(0, 20)
 	add_sibling(p)
 	AudioManager.play_sound("res://audio/item.wav")
+	
+	uses += 1
+	if use_limit > 0 and uses >= use_limit:
+		queue_free()
