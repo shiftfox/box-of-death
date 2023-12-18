@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var speed: float
 @export var jump_velocity: float
 @export var camera_should_follow = true
+@export var immune = false
 var camera: Camera2D
 var health = 1.0
 var frozen: bool
@@ -45,6 +46,8 @@ func _physics_process(delta):
 		damage(1, false)
 
 func damage(amount: float, success: bool):
+	if immune and amount < 1:
+		return
 	health -= amount
 	health_bar.value = health
 	if health <= 0:

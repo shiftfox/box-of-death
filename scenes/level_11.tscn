@@ -52,6 +52,7 @@ colors = PackedColorArray(1, 0, 0, 1, 0.490196, 1, 0.509804, 1, 0, 0, 1, 1, 1, 0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("1_adhyk")
+preboss = true
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
 process_mode = 1

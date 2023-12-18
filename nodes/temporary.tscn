@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk5lam4yyknwc"]
+
+[ext_resource type="Texture2D" uid="uid://dtcqkvouno8js" path="res://sprites/circle.png" id="1_xou8p"]
+
+[node name="Temporary" type="Sprite2D"]
+modulate = Color(1, 0, 0, 0.235294)
+texture = ExtResource("1_xou8p")

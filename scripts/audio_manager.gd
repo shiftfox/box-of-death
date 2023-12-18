@@ -5,6 +5,9 @@ var song_player: AudioStreamPlayer2D
 
 func play_sound(asset: String, music = false):
 	if music:
+		if asset == "stop":
+			song_player.stop()
+			return
 		if asset == song:
 			return
 		if song_player != null:
