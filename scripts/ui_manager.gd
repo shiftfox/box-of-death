@@ -56,3 +56,7 @@ func restart():
 
 func quit():
 	get_tree().quit()
+
+func _on_menu_pressed():
+	$Menu.disabled = true
+	$Menu/Label.text = "Finish the level first"

@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
+signal died()
+
 @onready var canvas = $"../../CanvasLayer"
 @onready var health_bar = $"../../CanvasLayer/HealthBar"
 
 @export var speed: float
 @export var jump_velocity: float
 @export var camera_should_follow = true
-@export var immune = false
+@export var bossfight = false
+@export var boss_dead = false
 var camera: Camera2D
 var health = 1.0
 var frozen: bool
@@ -46,11 +49,12 @@ func _physics_process(delta):
 		damage(1, false)
 
 func damage(amount: float, success: bool):
-	if immune and amount < 1:
-		return
+	if bossfight and not boss_dead: success = false
+	if health <= 0: return
 	health -= amount
 	health_bar.value = health
 	if health <= 0:
+		died.emit()
 		hide()
 		frozen = true
 		$"../../Setup/CustomTimer".set_process(false)
@@ -58,6 +62,10 @@ func damage(amount: float, success: bool):
 		explosion.position = global_position
 		add_sibling(explosion)
 		AudioManager.play_sound("res://audio/explosion.wav")
+		if bossfight and boss_dead:
+			await get_tree().create_timer(3).timeout
+			SceneManager.change_scene("res://scenes/thanks.tscn")
+			return
 		await get_tree().create_timer(1).timeout
 		canvas.finish(success)
 		return
@@ -67,5 +75,5 @@ func damage(amount: float, success: bool):
 	add_sibling(explosion)
 
 func _play_walk_sound():
-	if velocity.x != 0:
+	if velocity.x != 0 and is_on_floor():
 		AudioManager.play_sound("res://audio/walk.wav")

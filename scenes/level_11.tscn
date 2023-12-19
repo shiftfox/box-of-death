@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfs1nv6ytqoaa"]
+[gd_scene load_steps=17 format=3 uid="uid://cfs1nv6ytqoaa"]
 
 [ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_adhyk"]
 [ext_resource type="FontFile" uid="uid://ciydmudo7dbn6" path="res://sprites/Silkscreen.ttf" id="2_4cdo5"]
@@ -24,6 +24,8 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="ImageTexture" id="ImageTexture_8jijs"]
 
 [sub_resource type="Environment" id="Environment_qnhap"]
 background_mode = 3
@@ -119,6 +121,7 @@ scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("3_ladn4")
 texture_pressed = ExtResource("4_oc3p5")
 texture_hover = ExtResource("5_2honj")
+texture_disabled = SubResource("ImageTexture_8jijs")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -454,7 +457,7 @@ scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_pndhf")
 color_initial_ramp = SubResource("Gradient_ra70m")
 
-[connection signal="pressed" from="CanvasLayer/Menu" to="CanvasLayer" method="main_menu"]
+[connection signal="pressed" from="CanvasLayer/Menu" to="CanvasLayer" method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/Menu" to="CanvasLayer" method="main_menu"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/Resume" to="CanvasLayer" method="toggle_pause"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/Restart" to="CanvasLayer" method="restart"]

@@ -1,6 +1,7 @@
 extends Interactable
 
 @export var use_limit = 0
+@export var alt_objects: Array[PackedScene]
 var uses = 0
 
 var objects = [
@@ -14,6 +15,8 @@ var particle = preload("res://nodes/item_spawn.tscn")
 
 func _interact():
 	var object = objects[randi() % objects.size()].instantiate()
+	if alt_objects.size() > 0:
+		object = alt_objects[randi() % alt_objects.size()].instantiate()
 	object.position = global_position - Vector2(0, 20)
 	object.apply_central_impulse(Vector2(0, -300))
 	add_sibling(object)

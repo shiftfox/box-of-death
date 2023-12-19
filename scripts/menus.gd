@@ -18,8 +18,8 @@ func toggle(new_control):
 	active.show()
 	tween.tween_property(active, "modulate", Color.WHITE, 0.3)
 
-func _settings():
-	toggle($Settings)
+func _about():
+	toggle($About)
 
 func _play():
 	toggle($LevelSelect)

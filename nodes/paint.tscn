@@ -7,6 +7,7 @@
 radius = 3.2
 
 [node name="Paint" type="RigidBody2D"]
+collision_layer = 2
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_yiije")

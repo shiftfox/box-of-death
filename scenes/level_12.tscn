@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbcj2eir1uqdq"]
+[gd_scene load_steps=16 format=3 uid="uid://cxyrwtqlf6sc6"]
 
 [ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_ssnyl"]
 [ext_resource type="FontFile" uid="uid://ciydmudo7dbn6" path="res://sprites/Silkscreen.ttf" id="2_5fedp"]
@@ -6,11 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://d0nvo8k6aseo8" path="res://sprites/sprite_2.png" id="4_ls8o6"]
 [ext_resource type="Texture2D" uid="uid://bmgamb5qccvh0" path="res://sprites/sprite_1.png" id="5_kdm1s"]
 [ext_resource type="Script" path="res://scripts/custom_timer.gd" id="6_8360w"]
+[ext_resource type="Script" path="res://scripts/bossfight.gd" id="7_36rad"]
 [ext_resource type="PackedScene" uid="uid://b025vdpuk3vhe" path="res://nodes/player.tscn" id="7_nwakc"]
 [ext_resource type="TileSet" uid="uid://d3jfvqxj2x0kj" path="res://tileset/tileset.tres" id="8_e37mg"]
-[ext_resource type="Script" path="res://scripts/boss.gd" id="10_ua26n"]
 [ext_resource type="Texture2D" uid="uid://du77p01w2tll5" path="res://sprites/box.png" id="11_5gqn2"]
-[ext_resource type="Script" path="res://scripts/boss_physical.gd" id="11_jeyuh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_et0q6"]
 bg_color = Color(0.643137, 0.643137, 0.643137, 1)
@@ -20,7 +19,14 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7d1y"]
-bg_color = Color(1, 0, 0.227451, 1)
+bg_color = Color(0, 1, 0.552941, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqkj3"]
+bg_color = Color(1, 0.341176, 0.309804, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -42,9 +48,6 @@ glow_blend_mode = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6qa2"]
 size = Vector2(48, 48)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i52ji"]
-size = Vector2(50, 50)
 
 [node name="Level12" type="Node2D"]
 
@@ -68,6 +71,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_et0q6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_t7d1y")
 max_value = 1.0
 value = 1.0
+
+[node name="BossHealthBar" type="ProgressBar" parent="CanvasLayer"]
+process_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 360.0
+offset_top = 80.0
+offset_right = -216.0
+offset_bottom = 107.0
+grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5fedp")
+theme_override_styles/background = SubResource("StyleBoxFlat_et0q6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cqkj3")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 process_mode = 1
@@ -373,66 +391,39 @@ enabled = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setup"]
 environment = SubResource("Environment_qnhap")
 
-[node name="Bossfight" type="Node2D" parent="."]
-script = ExtResource("10_ua26n")
-time = 5.0
-
-[node name="PhysicalForm" type="AnimatableBody2D" parent="Bossfight"]
-script = ExtResource("11_jeyuh")
-time = 1.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Bossfight/PhysicalForm"]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_5gqn2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bossfight/PhysicalForm"]
-shape = SubResource("RectangleShape2D_y6qa2")
-
-[node name="Area2D" type="Area2D" parent="Bossfight/PhysicalForm"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bossfight/PhysicalForm/Area2D"]
-shape = SubResource("RectangleShape2D_i52ji")
-
-[node name="CircleSpot1" type="Node2D" parent="Bossfight"]
-position = Vector2(-150, 32)
-
-[node name="CircleSpot2" type="Node2D" parent="Bossfight"]
-position = Vector2(-50, 32)
-
-[node name="CircleSpot3" type="Node2D" parent="Bossfight"]
-position = Vector2(50, 32)
-
-[node name="CircleSpot4" type="Node2D" parent="Bossfight"]
-position = Vector2(150, 32)
-
-[node name="CircleSpot9" type="Node2D" parent="Bossfight"]
-position = Vector2(192, 32)
-
-[node name="CircleSpot5" type="Node2D" parent="Bossfight"]
-position = Vector2(-199, 32)
-
-[node name="CircleSpot6" type="Node2D" parent="Bossfight"]
-position = Vector2(-99, 32)
-
-[node name="CircleSpot7" type="Node2D" parent="Bossfight"]
-position = Vector2(1, 32)
-
-[node name="CircleSpot8" type="Node2D" parent="Bossfight"]
-position = Vector2(101, 32)
-
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Player" parent="Environment" instance=ExtResource("7_nwakc")]
 position = Vector2(-79, 5)
 collision_layer = 3
 camera_should_follow = false
-immune = true
+bossfight = true
 
 [node name="TileMap" type="TileMap" parent="Environment"]
 tile_set = ExtResource("8_e37mg")
 format = 2
 layer_0/tile_data = PackedInt32Array(131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 131068, 65536, 0, 196604, 65536, 1, 262140, 65536, 2, 262141, 65536, 2, 262142, 65536, 2, 262143, 65536, 2, 196608, 65536, 2, 196609, 65536, 2, 196610, 65536, 2, 196611, 65536, 2, 131075, 65536, 1, 131074, 65536, 1, 131073, 65536, 1, 131072, 65536, 1, 196607, 65536, 1, 196606, 65536, 1, 196605, 65536, 1, 131067, 65536, 0, 131066, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 131072, 0, 131065, 0, 0, 196601, 0, 1, 262137, 0, 2, 262138, 65536, 2, 262139, 65536, 2, 196612, 65536, 2, 196613, 65536, 2, 196614, 131072, 2, 131078, 131072, 1, 131077, 65536, 1, 131076, 65536, 1, 196603, 65536, 1, 196602, 65536, 1)
+
+[node name="BossFight" type="Area2D" parent="Environment"]
+position = Vector2(350, -68)
+script = ExtResource("7_36rad")
+stage_count = 2
+health = 3.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/BossFight"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_5gqn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/BossFight"]
+shape = SubResource("RectangleShape2D_y6qa2")
+
+[node name="StartLocation" type="Node2D" parent="Environment/BossFight"]
+position = Vector2(-224, 32)
+
+[node name="EndLocation" type="Node2D" parent="Environment/BossFight"]
+position = Vector2(224, 32)
+
+[node name="StageTimer" type="Timer" parent="Environment/BossFight"]
 
 [connection signal="pressed" from="CanvasLayer/PauseScreen/Menu" to="CanvasLayer" method="main_menu"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/Resume" to="CanvasLayer" method="toggle_pause"]
@@ -440,4 +431,5 @@ layer_0/tile_data = PackedInt32Array(131069, 65536, 0, 131070, 65536, 0, 131071,
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Menu" to="CanvasLayer" method="main_menu"]
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Restart" to="CanvasLayer" method="restart"]
 [connection signal="pressed" from="CanvasLayer/FinishScreen/Quit" to="CanvasLayer" method="quit"]
-[connection signal="body_entered" from="Bossfight/PhysicalForm/Area2D" to="Bossfight/PhysicalForm" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Environment/BossFight" to="Environment/BossFight" method="body_entered"]
+[connection signal="timeout" from="Environment/BossFight/StageTimer" to="Environment/BossFight" method="pick_new_stage"]
